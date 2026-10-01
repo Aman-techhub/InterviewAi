@@ -1,0 +1,430 @@
+.interview-page {
+    min-height: 100vh;
+    padding: 0.5rem;
+    background: #080c13;
+    color: #edf1f7;
+    font-family: 'Trebuchet MS', 'Segoe UI', sans-serif;
+}
+
+.interview-layout {
+    width: min(100%, 96rem);
+    min-height: calc(100vh - 1rem);
+    display: grid;
+    grid-template-columns: 12.8rem minmax(0, 1fr) 13.6rem;
+    margin: 0 auto;
+    overflow: hidden;
+    border: 1px solid #222d3d;
+    border-radius: 0.55rem;
+    background: #101721;
+}
+
+.interview-nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-width: 0;
+    padding: 1.6rem 0.9rem 1.1rem;
+    border-right: 1px solid #293446;
+    background: #111821;
+}
+
+.nav-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.interview-nav__label,
+.match-score__label,
+.skill-gaps__label {
+    margin: 0 0 0.65rem 0.7rem;
+    color: #8792a1;
+    font-size: 0.64rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.interview-nav__item {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    width: 100%;
+    padding: 0.62rem 0.7rem;
+    border: 0;
+    border-radius: 0.2rem;
+    background: transparent;
+    color: #a2acba;
+    cursor: pointer;
+    font: inherit;
+    font-size: 0.76rem;
+    text-align: left;
+    transition: background-color 160ms ease, color 160ms ease;
+}
+
+.interview-nav__item:hover,
+.interview-nav__item--active {
+    background: rgba(244, 38, 113, 0.14);
+    color: #fa3b7c;
+}
+
+.interview-nav__icon {
+    display: inline-flex;
+    color: currentColor;
+}
+
+.interview-nav > .button {
+    width: 100%;
+    justify-content: center;
+    padding: 0.65rem 0.5rem;
+    font-size: 0.7rem;
+}
+
+.interview-divider {
+    display: none;
+}
+
+.interview-content {
+    min-width: 0;
+    padding: 1.65rem 1.55rem;
+    background: #121a25;
+}
+
+.content-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.65rem;
+}
+
+.content-header h2 {
+    margin: 0;
+    color: #f0f3f8;
+    font-size: 1.05rem;
+    font-weight: 700;
+}
+
+.content-header__count {
+    padding: 0.25rem 0.6rem;
+    border: 1px solid #29364b;
+    border-radius: 999px;
+    background: #1b2433;
+    color: #9ca7b8;
+    font-size: 0.64rem;
+}
+
+.q-list,
+.roadmap-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+}
+
+.q-card {
+    overflow: hidden;
+    border: 1px solid #273449;
+    border-radius: 0.45rem;
+    background: #1a2332;
+    box-shadow: 0 0.35rem 1rem rgba(0, 0, 0, 0.08);
+}
+
+.q-card__header {
+    display: grid;
+    grid-template-columns: 1.8rem minmax(0, 1fr) 1.2rem;
+    align-items: center;
+    gap: 0.55rem;
+    min-height: 3.55rem;
+    padding: 0.7rem 0.8rem;
+    cursor: pointer;
+}
+
+.q-card__index {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.75rem;
+    height: 1.25rem;
+    border-radius: 0.25rem;
+    background: rgba(244, 38, 113, 0.14);
+    color: #fa3b7c;
+    font-size: 0.63rem;
+    font-weight: 700;
+}
+
+.q-card__question {
+    margin: 0;
+    color: #f0f3f7;
+    font-size: 0.78rem;
+    font-weight: 600;
+    line-height: 1.45;
+}
+
+.q-card__chevron {
+    display: inline-flex;
+    justify-content: flex-end;
+    color: #7e8b9e;
+    transition: transform 160ms ease;
+}
+
+.q-card__chevron--open {
+    transform: rotate(180deg);
+}
+
+.q-card__body {
+    display: grid;
+    gap: 0.9rem;
+    padding: 0 1rem 1rem 3.1rem;
+    border-top: 1px solid #273449;
+}
+
+.q-card__section {
+    padding-top: 0.8rem;
+}
+
+.q-card__section p {
+    margin: 0.45rem 0 0;
+    color: #aab4c2;
+    font-size: 0.75rem;
+    line-height: 1.6;
+}
+
+.q-card__tag,
+.roadmap-day__badge {
+    color: #fa3b7c;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.q-card__tag--answer {
+    color: #62c994;
+}
+
+.roadmap-progress {
+    margin: -0.45rem 0 1.2rem;
+}
+
+.roadmap-progress__label {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.4rem;
+    color: #8792a1;
+    font-size: 0.66rem;
+
+    strong {
+        color: #68d58f;
+        font-weight: 700;
+    }
+}
+
+.roadmap-progress__track {
+    height: 0.3rem;
+    overflow: hidden;
+    border-radius: 999px;
+    background: #263247;
+
+    span {
+        display: block;
+        height: 100%;
+        border-radius: inherit;
+        background: #42c86b;
+        transition: width 240ms ease;
+    }
+}
+
+.roadmap-day {
+    padding: 1rem;
+    border: 1px solid #273449;
+    border-radius: 0.45rem;
+    background: #1a2332;
+}
+
+.roadmap-day__header {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+}
+
+.roadmap-day__focus {
+    margin: 0;
+    color: #f0f3f7;
+    font-size: 0.85rem;
+}
+
+.roadmap-day__tasks {
+    display: grid;
+    gap: 0.45rem;
+    margin: 0.8rem 0 0;
+    padding: 0;
+    color: #aab4c2;
+    font-size: 0.75rem;
+    list-style: none;
+}
+
+.roadmap-day__tasks li {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+}
+
+.roadmap-day__bullet {
+    width: 0.35rem;
+    height: 0.35rem;
+    flex: 0 0 auto;
+    border-radius: 50%;
+    background: #fa3b7c;
+}
+
+.interview-sidebar {
+    min-width: 0;
+    padding: 1.65rem 1rem;
+    border-left: 1px solid #293446;
+    background: #101720;
+}
+
+.match-score {
+    text-align: center;
+}
+
+.match-score__label,
+.skill-gaps__label {
+    margin-left: 0;
+    text-align: left;
+}
+
+.match-score__ring {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    width: 5rem;
+    height: 5rem;
+    margin: 0.35rem auto 0.75rem;
+    border: 3px solid #38bc5d;
+    border-radius: 50%;
+}
+
+.match-score__value {
+    color: #f0f3f7;
+    font-size: 1.45rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.match-score__pct {
+    flex-basis: 100%;
+    color: #8792a1;
+    font-size: 0.62rem;
+}
+
+.match-score__sub {
+    margin: 0;
+    color: #42c86b;
+    font-size: 0.68rem;
+}
+
+.sidebar-divider {
+    height: 1px;
+    margin: 1.4rem 0 1.2rem;
+    background: #293446;
+}
+
+.skill-gaps__list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+}
+
+.skill-tag {
+    display: block;
+    padding: 0.45rem 0.55rem;
+    border: 1px solid;
+    border-radius: 0.25rem;
+    font-size: 0.65rem;
+    line-height: 1.3;
+}
+
+.skill-tag--high {
+    border-color: #883548;
+    background: rgba(217, 53, 79, 0.18);
+    color: #ff7881;
+}
+
+.skill-tag--medium {
+    border-color: #936326;
+    background: rgba(215, 139, 34, 0.16);
+    color: #f3b64c;
+}
+
+.skill-tag--low {
+    border-color: #286747;
+    background: rgba(40, 151, 91, 0.16);
+    color: #68d58f;
+}
+
+.loading-screen {
+    display: grid;
+    min-height: 100vh;
+    place-items: center;
+    background: #080c13;
+    color: #edf1f7;
+}
+
+@media (max-width: 800px) {
+    .interview-page {
+        padding: 0;
+    }
+
+    .interview-layout {
+        min-height: 100vh;
+        grid-template-columns: 1fr;
+        border: 0;
+        border-radius: 0;
+    }
+
+    .interview-nav {
+        gap: 1.25rem;
+        padding: 1.15rem;
+        border-right: 0;
+        border-bottom: 1px solid #293446;
+    }
+
+    .nav-content {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .interview-nav__label {
+        grid-column: 1 / -1;
+    }
+
+    .interview-nav__item {
+        justify-content: center;
+        padding-inline: 0.35rem;
+        font-size: 0.68rem;
+        text-align: center;
+    }
+
+    .interview-nav > .button {
+        align-self: flex-start;
+        width: auto;
+    }
+
+    .interview-content {
+        padding: 1.25rem;
+    }
+
+    .interview-sidebar {
+        display: grid;
+        grid-template-columns: 9rem minmax(0, 1fr);
+        gap: 1rem;
+        padding: 1.25rem;
+        border-top: 1px solid #293446;
+        border-left: 0;
+    }
+
+    .sidebar-divider {
+        display: none;
+    }
+}
