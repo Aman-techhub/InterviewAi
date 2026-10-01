@@ -32,6 +32,130 @@ $font-stack:     system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Robot
     gap: 2rem;
 }
 
+.home-toolbar {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    max-width: 900px;
+}
+
+.profile-menu {
+    position: relative;
+    z-index: 2;
+
+    &__trigger {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        min-width: 11rem;
+        padding: 0.45rem 0.6rem;
+        border: 1px solid $border-color;
+        border-radius: 0.5rem;
+        background: $bg-card;
+        color: $text-primary;
+        cursor: pointer;
+        font: inherit;
+        text-align: left;
+    }
+
+    &__avatar {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 1.9rem;
+        height: 1.9rem;
+        flex-shrink: 0;
+        border-radius: 50%;
+        background: rgba($accent, 0.15);
+        color: $accent-alt;
+        font-size: 0.8rem;
+        font-weight: 700;
+    }
+
+    &__identity {
+        display: flex;
+        flex: 1;
+        min-width: 0;
+        flex-direction: column;
+    }
+
+    &__name,
+    &__email {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    &__name {
+        font-size: 0.8rem;
+        font-weight: 600;
+    }
+
+    &__email {
+        color: $text-muted;
+        font-size: 0.68rem;
+    }
+
+    &__chevron {
+        display: flex;
+        color: $text-muted;
+        transition: transform 0.2s;
+
+        &--open {
+            transform: rotate(180deg);
+        }
+    }
+
+    &__dropdown {
+        position: absolute;
+        top: calc(100% + 0.45rem);
+        right: 0;
+        width: min(16rem, calc(100vw - 3rem));
+        overflow: hidden;
+        border: 1px solid $border-color;
+        border-radius: 0.5rem;
+        background: $bg-card;
+        box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.3);
+    }
+
+    &__summary {
+        display: flex;
+        flex-direction: column;
+        gap: 0.2rem;
+        padding: 0.8rem 1rem;
+        border-bottom: 1px solid $border-color;
+        font-size: 0.8rem;
+
+        span {
+            overflow: hidden;
+            color: $text-muted;
+            font-size: 0.7rem;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+    }
+
+    &__item {
+        display: flex;
+        align-items: center;
+        gap: 0.65rem;
+        width: 100%;
+        padding: 0.75rem 1rem;
+        border: 0;
+        background: transparent;
+        color: $text-primary;
+        cursor: pointer;
+        font: inherit;
+        font-size: 0.8rem;
+        text-align: left;
+
+        &:hover {
+            background: $bg-panel;
+            color: $accent-alt;
+        }
+    }
+}
+
 // ── Page Header ──────────────────────────────────────────────────────────────
 .page-header {
     text-align: center;
@@ -58,6 +182,7 @@ $font-stack:     system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Robot
 
 // ── Main Card ─────────────────────────────────────────────────────────────────
 .interview-card {
+    position: relative;
     width: 100%;
     max-width: 900px;
     background-color: $bg-card;
@@ -68,6 +193,7 @@ $font-stack:     system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Robot
     &__body {
         display: flex;
         min-height: 520px;
+        padding-top: 4.25rem;
     }
 
     &__footer {
@@ -386,6 +512,12 @@ $font-stack:     system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Robot
     }
 }
 
+.reports-empty {
+    margin: 0;
+    color: $text-muted;
+    font-size: 0.875rem;
+}
+
 
 // ── Page Footer ───────────────────────────────────────────────────────────────
 .page-footer {
@@ -420,4 +552,21 @@ $font-stack:     system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Robot
     background-color: rgba($accent, 0.12);
     border-top: 1px solid rgba($accent, 0.3);
     font-size: 0.85rem;
+}
+
+@media (max-width: 600px) {
+    .home-toolbar {
+        max-width: 100%;
+    }
+
+    .profile-menu__trigger {
+        min-width: 0;
+        max-width: min(16rem, 100%);
+    }
+}
+
+.interview-card > .profile-menu {
+    position: absolute;
+    top: 0.75rem;
+    right: 1rem;
 }
